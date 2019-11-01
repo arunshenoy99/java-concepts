@@ -1,0 +1,325 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Consolas;}}
+{\colortbl ;\red63\green127\blue95;\red127\green0\blue85;\red0\green0\blue0;\red106\green62\blue62;\red0\green0\blue192;\red42\green0\blue255;\red212\green212\blue212;}
+{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\ul\b\f0\fs40\lang9 EXCEPTION HANDLING:-\par
+\par
+\ulnone 1.UNCAUGHT EXCEPTION:-\par
+\cf1\b0\f1\fs20 /*HERE WE USE JAVA'S DEFAULT THROW AND CATCH MECHANISM*/\cf0\par
+\cf2\b public\cf3\b0  \cf2\b class\cf3\b0  UncaughtException \{\cf0\par
+\cf3\tab\cf2\b public\cf3\b0  \cf2\b static\cf3\b0  \cf2\b void\cf3\b0  main(String[] \cf4 args\cf3 )\cf0\par
+\cf3\tab\{\cf0\par
+\cf3\tab\tab\cf2\b int\cf3\b0  \cf4 a\cf3 ,\cf4 b\cf3 ,\cf4\ul c\cf3\ulnone ;\cf0\par
+\cf3\tab\tab\cf4 a\cf3 =0;\cf0\par
+\cf3\tab\tab\cf4 b\cf3 =10;\cf0\par
+\cf3\tab\tab\cf4 c\cf3 =\cf4 b\cf3 /\cf4 a\cf3 ;\tab\cf1 /*EXCEPTION ARISES AS WE ARE ATTEMPTING TO DIVIDE BY 0 AN ArithmeticException OBJECT IS CREATED AND THROWN, SUBSEQUENT LINES NOT RUN*/\cf0\par
+\cf3\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "This will not be printed"\cf3 );\tab\cf1 /*AS WE ARE USING JAVA'S DEFAULT CATCH MECHANISM THIS LINE WILL NOT BE PRINTED AS PROGRAM TERMINATES WHEN EXCEPTION OCCURS*/\cf0\par
+\cf3\tab\}\cf0\par
+\cf3\}\cf0\par
+\par
+\par
+\cf1 /* OUTPUT:-\cf0\par
+\cf1 Exception in thread "main" java.lang.ArithmeticException: / by zero\cf0\par
+\cf1 at UncaughtException.main(UncaughtException.java:8)\cf0\par
+\cf1 */\par
+\par
+\cf0\b\f0\fs40 2.CAUGHT EXCEPTIONS:-\par
+\cf1\b0\f1\fs20 /*HERE WE USE JAVA'S THROW BUT OUR CATCH MECHANISM*/\cf0\par
+\cf2\b public\cf3\b0  \cf2\b class\cf3\b0  CaughtException \{\cf0\par
+\cf3\tab\cf2\b public\cf3\b0  \cf2\b static\cf3\b0  \cf2\b void\cf3\b0  main(String[] \cf4 args\cf3 )\cf0\par
+\cf3\tab\{\cf0\par
+\cf3\tab\tab\cf2\b try\cf3\b0  \{\cf0\par
+\cf3\tab\tab\tab\cf2\b int\cf3\b0  \cf4 a\cf3 ,\cf4 b\cf3 ,\cf4\ul c\cf3\ulnone ;\cf0\par
+\cf3\tab\tab\tab\cf4 a\cf3 =0;\cf0\par
+\cf3\tab\tab\tab\cf4 b\cf3 =20;\cf0\par
+\cf3\tab\tab\tab\cf4 c\cf3 =\cf4 b\cf3 /\cf4 a\cf3 ;\tab\cf1 /*EXCEPTION ARISES AS WE ARE ATTEMPTING TO DIVIDE BY 0 AN ArithmeticException OBJECT IS CREATED AND THROWN, SUBSEQUENT LINES IN TRY NOT RUN*/\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "THIS LINE WILL NOT BE EXECUTED"\cf3 );\cf0\par
+\cf3\tab\tab\}\cf2\b catch\cf3\b0 (ArithmeticException \cf4 e\cf3 ) \{\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "EXCEPTION 1: DIVIDE BY ZERO"\cf3 );\tab\cf1 /*DISPLAY OUR OWN MESSAGE*/\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "EXCEPTION 2:"\cf3 +\cf4 e\cf3 );\tab\tab\tab\tab\cf1 /*DISPLAY ERROR MESSAGE THROWN BY JAVA'S THROW MECHANISM*/\cf0\par
+\cf3\tab\tab\}\cf0\par
+\cf3\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "THIS LINE WILL BE EXECUTED"\cf3 );\tab\tab\cf1 /*PROGRAM DOES NOT TERMINATE AND THE LINES AFTER THE TRY CATCH BLOCK ARE EXECUTED*/\cf0\par
+\cf3\tab\}\cf0\par
+\cf3\tab\cf0\par
+\cf3\}\cf0\par
+\par
+\par
+\par
+\par
+\cf1 /*OUTPUT:-\cf0\par
+\cf1 EXCEPTION 1: DIVIDE BY ZERO\cf0\par
+\cf1 EXCEPTION 2:java.lang.ArithmeticException: / by zero\cf0\par
+\cf1 THIS LINE WILL BE EXECUTED\cf0\par
+\cf1 */\cf0\par
+\b\f0\fs40 3.MULTIPLE CATCH:-\par
+\cf1\b0\f1\fs20 /*HERE WE USE MULTIPLE catch BLOCKS FOR A SINGLE try BLOCK*/\cf0\par
+\cf2\b import\cf3\b0  java.util.*;\cf0\par
+\cf2\b public\cf3\b0  \cf2\b class\cf3\b0  MultipleCatch \{\cf0\par
+\cf3\tab\cf2\b public\cf3\b0  \cf2\b static\cf3\b0  \cf2\b void\cf3\b0  main(String[] \cf4 args\cf3 )\cf0\par
+\cf3\tab\{\cf0\par
+\cf3\tab\tab\cf2\b try\cf3\b0  \{\cf0\par
+\cf3\tab\tab\tab\cf2\b int\cf3\b0  \cf4 a\cf3 ,\cf4 b\cf3 ,\cf4\ul c\cf3\ulnone ;\cf0\par
+\cf3\tab\tab\tab\cf4 b\cf3 =10;\cf0\par
+\cf3\tab\tab\tab String \cf4 s1\cf3 =\cf2\b null\cf3\b0 ;\cf0\par
+\cf3\tab\tab\tab Scanner \cf4\ul s\cf3\ulnone  = \cf2\b new\cf3\b0  Scanner(System.\cf5\b\i in\cf3\b0\i0 );\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "ENTER THE VALUE OF a:"\cf3 );\cf0\par
+\cf3\tab\tab\tab\cf4 a\cf3  = \cf4 s\cf3 .nextInt();\cf0\par
+\cf3\tab\tab\tab\cf2\b if\cf3\b0 (\cf4 a\cf3 ==0)\cf0\par
+\cf3\tab\tab\tab\{\cf0\par
+\cf3\tab\tab\tab\tab\cf4 c\cf3 =\cf4 b\cf3 /\cf4 a\cf3 ;  \cf1 /*EXCEPTION ARISES AS WE ARE ATTEMPTING TO DIVIDE BY 0 AN ArithmeticException OBJECT IS CREATED AND THROWN, SUBSEQUENT LINES IN TRY NOT RUN */\cf0\par
+\cf3\tab\tab\tab\}\cf0\par
+\cf3\tab\tab\tab\cf2\b else\cf3\b0  \{\cf0\par
+\cf3\tab\tab\tab\tab\cf4 a\cf3  = \cf4\ul s1\cf3\ulnone .length();\tab\cf1 /*EXCEPTION ARISES AS WE ARE ATTEMPTING TO FIND THE LENGTH OF A null STRING A NullPointerException OBJECT IS CREATED AND THROWN,SUSBSEQUENT LINES IN TRY NOT RUN*/\cf0\par
+\cf3\tab\tab\tab\}\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "THIS LINE WILL NOT RUN"\cf3 );\cf0\par
+\cf3\tab\tab\tab\cf0\par
+\cf3\tab\tab\tab\cf0\par
+\cf3\tab\tab\}\cf2\b catch\cf3\b0 (ArithmeticException \cf4 e\cf3 ) \{\cf0\par
+\cf3\tab\tab\tab\cf1 /*THIS IS THE CATCH FOR THE DIVIDE BY ZERO ERROR*/\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "EXCEPTION 1:"\cf3 +\cf4 e\cf3 );\cf0\par
+\cf3\tab\tab\tab\cf0\par
+\cf3\tab\tab\}\cf2\b catch\cf3\b0 (NullPointerException \cf4 e\cf3 ) \{\cf0\par
+\cf3\tab\tab\tab\cf1 /*THIS IS THE CATCH FOR THE EXCEPTION ARISING DUE TO FINDING LENGTH OF NULL STRING*/\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "EXCEPTION 2:"\cf3 +\cf4 e\cf3 );\cf0\par
+\cf3\tab\tab\}\cf2\b catch\cf3\b0 (Exception \cf4 e\cf3 ) \{\cf0\par
+\cf3\tab\tab\tab\cf1 /* THIS CATCHES ANY OTHER EXCEPTION THAN ArithmeticException AND NullPointerException*/\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "EXCEPTION:"\cf3 +\cf4 e\cf3 );\cf0\par
+\cf3\tab\tab\}\cf0\par
+\cf3\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "THIS LINE WILL BE EXECUTED"\cf3 );\tab\cf1 /*PROGRAM DOES NOT TERMINATE AND THE LINES AFTER THE TRY CATCH BLOCK ARE EXECUTED*/\cf0\par
+\cf3\tab\}\cf0\par
+\cf3\}\cf0\par
+\par
+\par
+\par
+\par
+\cf1 /*OUTPUT 1:-\cf0\par
+\cf1 ENTER THE VALUE OF a:\cf0\par
+\cf1 2\cf0\par
+\cf1 EXCEPTION 2:java.lang.NullPointerException\cf0\par
+\cf1 THIS CODE WILL BE EXECUTED\cf0\par
+\cf1 */\cf0\par
+\par
+\cf1 /*OUTPUT 2:-\cf0\par
+\cf1 EXCEPTION 1:java.lang.ArithmeticException: / by zero\cf0\par
+\cf1 THIS LINE WILL BE EXECUTED\cf0\par
+\cf1 */\par
+\cf0\b\f0\fs40\par
+4.NESTED TRY:-\par
+\cf1\b0\f1\fs20 /*HERE WE USE NESTED TRY STATEMENTS AND ANALYZE HOW EXCEPTIONS CAN BE CAUGHT FOR NESTED TRY BLOCKS*/\cf0\par
+\cf2\b import\cf3\b0  java.util.*;\cf0\par
+\cf2\b public\cf3\b0  \cf2\b class\cf3\b0  NestedTry \{\cf0\par
+\cf3\tab\cf2\b public\cf3\b0  \cf2\b static\cf3\b0  \cf2\b void\cf3\b0  main(String[] \cf4 args\cf3 ) \{\cf0\par
+\cf3\tab\tab\cf2\b int\cf3\b0  \cf4 a\cf3 ,\cf4 b\cf3 ,\cf4\ul c\cf3\ulnone ;\cf0\par
+\cf3\tab\tab\cf2\b int\cf3\b0  \cf4 arr\cf3 [] = \{1\};\cf0\par
+\cf3\tab\tab String \cf4 s1\cf3 =\cf2\b null\cf3\b0 ;\cf0\par
+\cf3\tab\tab\cf4 b\cf3 =20;\cf0\par
+\cf3\tab\tab Scanner \cf4\ul s\cf3\ulnone  = \cf2\b new\cf3\b0  Scanner(System.\cf5\b\i in\cf3\b0\i0 );\cf0\par
+\cf3\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "ENTER THE VALUE OF a:"\cf3 );\cf0\par
+\cf3\tab\tab\cf4 a\cf3  = \cf4 s\cf3 .nextInt();\cf0\par
+\cf3\tab\tab\cf2\b try\cf3\b0  \{\cf0\par
+\cf3\tab\tab\tab\cf2\b if\cf3\b0 (\cf4 a\cf3 ==0) \{\cf0\par
+\cf3\tab\tab\tab\tab\cf4 c\cf3 =\cf4 b\cf3 /\cf4 a\cf3 ;  \cf1 /*EXCEPTION ARISES AS WE ARE ATTEMPTING TO DIVIDE BY 0 AN ArithmeticException OBJECT IS CREATED AND THROWN, SUBSEQUENT LINES IN TRY NOT RUN*/\cf0\par
+\cf3\tab\tab\tab\}\cf0\par
+\cf3\tab\tab\tab\cf2\b try\cf3\b0  \{\cf0\par
+\cf3\tab\tab\tab\tab\cf2\b if\cf3\b0 (\cf4 a\cf3 ==1) \{\cf0\par
+\cf3\tab\tab\tab\tab\cf4 c\cf3  = \cf4\ul s1\cf3\ulnone .length();\cf1 /*EXCEPTION ARISES AS WE ARE ATTEMPTING TO FIND THE LENGTH OF A null STRING A NullPointerException OBJECT IS CREATED AND THROWN,SUSBSEQUENT LINES IN TRY NOT RUN*/\cf0\par
+\cf3\tab\tab\tab\tab\}\cf0\par
+\cf3\tab\tab\tab\tab\cf2\b else\cf0\b0\par
+\cf3\tab\tab\tab\tab\{\cf0\par
+\cf3\tab\tab\tab\tab\cf4 arr\cf3 [11]=10;\tab\cf1 /*EXCEPTION ARISES AS THE SIZE OF \ul arr\ulnone  IS 1 AND WE ARE TRYING TO INITIALIZE a[11], AN ArrayIndexOutOfBounds EXCEPTION OBJECT IS CREATED AND THROWN, SUBSEQUENT LINES IN TRY WILL NOT BE EXECUTED*/\cf0\par
+\cf3\tab\tab\tab\tab\}\cf0\par
+\cf3\tab\tab\tab\}\cf2\b catch\cf3\b0 (ArrayIndexOutOfBoundsException \cf4 e\cf3 ) \{\cf0\par
+\cf3\tab\tab\tab\tab\cf1 /*THIS BLOCK CATCHES THE ARRAY INDEX OUT OF BOUNDS EXCEPTION ARISING FROM THE INNER try BLOCK*/\cf0\par
+\cf3\tab\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "EXCEPTION 1:"\cf3 +\cf4 e\cf3 );\cf0\par
+\cf3\tab\tab\tab\tab\cf0\par
+\cf3\tab\tab\tab\}\cf0\par
+\cf3\tab\tab\tab\cf0\par
+\cf3\tab\tab\}\cf2\b catch\cf3\b0 (ArithmeticException \cf4 e\cf3 ) \{\cf0\par
+\cf3\tab\tab\tab\cf1 /*THIS BLOCK CATCHES THE DIVIDE BY ZERO EXCEPTION FROM OUTER TRY BLOCK*/\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "EXCEPTION 2:"\cf3 +\cf4 e\cf3 );\cf0\par
+\cf3\tab\tab\}\cf2\b catch\cf3\b0 (NullPointerException \cf4 e\cf3 ) \{\cf0\par
+\cf3\tab\tab\cf1 /*THIS BLOCK CATCHES THE NULL POINTER EXCEPTION FROM THE INNER BLOCK*/\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "EXCEPTION 3:"\cf3 +\cf4 e\cf3 );\cf0\par
+\cf3\tab\tab\}\cf0\par
+\cf3\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "THIS CODE WILL BE EXECUTED"\cf3 );\tab\tab\cf1 /*PROGRAM DOES NOT TERMINATE AND THE LINES AFTER THE TRY CATCH BLOCK ARE EXECUTED*/\cf0\par
+\cf3\tab\}\cf0\par
+\par
+\cf3\}\cf0\par
+\par
+\par
+\par
+\cf1 /*OUTPUT 1:-\cf0\par
+\cf1 ENTER THE VALUE OF a:\cf0\par
+\cf1 0\cf0\par
+\cf1 EXCEPTION 2:java.lang.ArithmeticException: / by zero\cf0\par
+\cf1 THIS CODE WILL BE EXECUTED\cf0\par
+\cf1  */\cf0\par
+\par
+\cf1 /* OUTPUT 2:-\cf0\par
+\cf1 ENTER THE VALUE OF a:\cf0\par
+\cf1 1\cf0\par
+\cf1 EXCEPTION 3:java.lang.NullPointerException\cf0\par
+\cf1 THIS CODE WILL BE EXECUTED\cf0\par
+\cf1  */\cf0\par
+\par
+\cf1 /*OUTPUT 3:-\cf0\par
+\cf1 EXCEPTION 1:java.lang.ArrayIndexOutOfBoundsException: Index 11 out of bounds for length 1\cf0\par
+\cf1 THIS CODE WILL BE EXECUTED\cf0\par
+\cf1  */\cf0\par
+\par
+\b\f0\fs40 5.UNCHECKED EXCEPTIONS:-\par
+\cf1\b0\f1\fs20 /*HERE WE USE THE KEYWORD throw TO THROW AN EXCPETION MANUALLY, WE THROW TWO EXCEPTIONS ONE OF WHICH WE CATCH AND THE OTHER IS CAUGHT BY JAVA'S DEFAULT MECHANISM*/\cf0\par
+\cf2\b import\cf3\b0  java.util.*;\cf0\par
+\cf2\b public\cf3\b0  \cf2\b class\cf3\b0  UncheckedException \{\cf0\par
+\cf3\tab\cf2\b public\cf3\b0  \cf2\b static\cf3\b0  \cf2\b void\cf3\b0  main(String[] \cf4 args\cf3 ) \{\cf0\par
+\cf3\tab\tab String \cf4 s1\cf3  = \cf2\b null\cf3\b0 ;\cf0\par
+\cf3\tab\tab\cf2\b int\cf3\b0  \cf4 accountbalance\cf3  = 1000;\cf0\par
+\cf3\tab\tab\cf2\b int\cf3\b0  \cf4 withdrawalamount\cf3 ;\cf0\par
+\cf3\tab\tab Scanner \cf4\ul s\cf3\ulnone  =  \cf2\b new\cf3\b0  Scanner(System.\cf5\b\i in\cf3\b0\i0 );\cf0\par
+\cf3\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "ENTER THE WITHDRAWAL AMOUNT"\cf3 );\cf0\par
+\cf3\tab\tab\cf4 withdrawalamount\cf3 = \cf4 s\cf3 .nextInt();\cf0\par
+\cf3\tab\tab\cf2\b try\cf3\b0  \{\cf0\par
+\cf3\tab\tab\tab\cf2\b if\cf3\b0 (\cf4 accountbalance\cf3 <\cf4 withdrawalamount\cf3 ) \{\cf0\par
+\cf3\tab\tab\tab\tab\cf2\b throw\cf3\b0  \cf2\b new\cf3\b0  ArithmeticException(\cf6 "INSUFFICIENT BALANCE"\cf3 );\tab\tab\cf1 /*WE THROW AN ArithmeticException OBJECT AS THE WITHDRAWAL AMOUNT IS GREATER THAN THE ACCOUNT BALANCE,THIS EXCEPTION IS HANDLED BY OUR CATCH BLOCK*/\cf0\par
+\cf3\tab\tab\tab\}\cf0\par
+\cf3\tab\tab\tab\cf2\b else\cf3\b0  \{\cf0\par
+\cf3\tab\tab\tab\tab\cf2\b if\cf3\b0 (\cf4 s1\cf3 ==\cf2\b null\cf3\b0 ) \{\cf0\par
+\cf3\tab\tab\tab\tab\tab\cf2\b throw\cf3\b0  \cf2\b new\cf3\b0  NullPointerException(\cf6 "s1 IS NOT INITIALISED"\cf3 );\tab\cf1 /*WE THROW AN NullPointerException OBJECT AS THE STRING s1 HAS NOT BEEN INITIALIZED, THIS EXCEPTION IS THROWN BY US BUT IS HANDLED BY THE DEFAULT CATCH MECHANISM*/\cf0\par
+\cf3\tab\tab\tab\tab\}\cf0\par
+\cf3\tab\tab\tab\}\cf0\par
+\cf3\tab\tab\}\cf2\b catch\cf3\b0 (\ul ArithmeticException\ulnone  \cf4 e\cf3 ) \{\cf0\par
+\cf3\tab\tab\tab\cf1 /*HANDLES ONLY THE EXCEPTION ARISEN DUE TO WITHDRAWAL AMOUNT BEING GREATER THAN BALANCE*/\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf4 e\cf3 .getMessage());\cf0\par
+\cf3\tab\tab\}\cf0\par
+\cf3\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "THIS LINE WILL BE EXECUTED ONLY WHEN ArithmeticException ARISES AND NOT FOR NullPointerException"\cf3 );\tab\cf1 /*THIS CODE IS EXECUTED ONLY WHEN OUR CATCH BLOCK RUNS \ul ie\ulnone  FOR ArithmeticException AND IS NOT EXECUTED WHEN THE DEFAULT CATHC MECHANISM RUNS \ul ie\ulnone  FOR NullPointerException */\cf0\par
+\cf3\tab\}\cf0\par
+\cf3\}\cf0\par
+\cf1\par
+\cf0\b\f0\fs40 6.CHECKED EXCEPTIONS:-\par
+\cf1\b0\f1\fs20 /*THIS TAKES CARE OF CHECKED EXCEPTIONS IN JAVA USING THE throws KEYWORD*/\cf0\par
+\cf2\b public\cf3\b0  \cf2\b class\cf3\b0  CheckedException \{\cf0\par
+\cf3\tab\cf2\b public\cf3\b0  \cf2\b static\cf3\b0  \cf2\b void\cf3\b0  main(String[] \cf4 args\cf3 ) \cf2\b throws\cf3\b0  InstantiationException\{\cf0\par
+\cf3\tab\tab\cf2\b try\cf3\b0  \{\cf0\par
+\cf3\tab\tab\tab\cf2\b throw\cf3\b0  \cf2\b new\cf3\b0  InstantiationException(\cf6 "CANNOT CREATE OBJECT FOR ABSTRACT CLASS OR INTERFACE"\cf3 );\tab\tab\cf1 /*SUCH AN EXCEPTION IS CREATED WHEN AN OBJECT OF ABS\\TRACT CLASS OR INTERFACE IS CREATED*/\cf0\par
+\cf3\tab\tab\}\cf2\b catch\cf3\b0 (InstantiationException \cf4 e\cf3 ) \{\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf4 e\cf3 .getMessage());\cf0\par
+\cf3\tab\tab\}\cf0\par
+\cf3\tab\tab\cf0\par
+\cf3\tab\}\cf0\par
+\par
+\cf3\}\cf0\par
+\par
+\cf1 /*OUTPUT:-\cf0\par
+\cf1 CANNOT CREATE OBJECT FOR ABSTRACT CLASS OR INTERFACE\cf0\par
+\cf1 */\par
+\par
+\cf0\b\f0\fs40 7.FINALLY:-\par
+\cf1\b0\f1\fs20 /* HERE WE USE THE finally BLOCK TO EXECUTE CERTAIN NECESSARY STATEMENTS BEFORE THE PROGRAM TERMINATES DUE TO EXCEPTION*/\cf0\par
+\cf2\b public\cf3\b0  \cf2\b class\cf3\b0  Finally \{\cf0\par
+\cf3\tab\cf2\b public\cf3\b0  \cf2\b static\cf3\b0  \cf2\b void\cf3\b0  main(String[] \cf4 args\cf3 ) \{\cf0\par
+\cf3\tab\tab\cf2\b try\cf3\b0  \{\cf0\par
+\cf3\tab\tab\tab\cf2\b int\cf3\b0  \cf4 a\cf3 ,\cf4 b\cf3 ,\cf4\ul c\cf3\ulnone ;\cf0\par
+\cf3\tab\tab\tab\cf4 b\cf3 =10;\cf0\par
+\cf3\tab\tab\tab\cf4 a\cf3 =0;\cf0\par
+\cf3\tab\tab\tab\cf4 c\cf3 =\cf4 b\cf3 /\cf4 a\cf3 ;\tab\cf1 /*EXCEPTION ARISES AS WE ARE ATTEMPTING TO DIVIDE BY 0 AN ArithmeticException OBJECT IS CREATED AND THROWN, SUBSEQUENT LINES IN TRY NOT RUN */\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "THIS LINE IS NOT EXECUTED"\cf3 );\tab\cf0\par
+\cf3\tab\tab\}\cf2\b finally\cf3\b0  \{\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "THIS IS THE LINE THAT IS TO BE EXECUTED BEFORE THE DEFAULT CATCH MECHANISM TERMINATES THE PROGRAM AND HANDLES THE EXCEPTION"\cf3 );\cf0\par
+\cf3\tab\tab\}\cf0\par
+\cf3\tab\}\cf0\par
+\cf3\}\cf0\par
+\par
+\par
+\cf1 /*OUTPUT:-\cf0\par
+\cf1 Exception in thread "main" THIS IS THE LINE THAT IS TO BE EXECUTED BEFORE THE DEFAULT CATCH MECHANISM TERMINATES THE PROGRAM AND HANDLES THE EXCEPTION\cf0\par
+\cf1 java.lang.ArithmeticException: / by zero\cf0\par
+\cf1\tab at Finally.main(Finally.java:8)\cf0\par
+\cf1 */\par
+\par
+\cf0\b\f0\fs40 8.CUSTOM EXCEPTIONS:-\par
+\cf2\f1\fs20 import\cf3\b0  java.util.*;\cf0\par
+\cf2\b class\cf3\b0  \ul InvalidWithdrawalAmountException\ulnone  \cf2\b extends\cf3\b0  Exception\{\tab\cf1 /*CREATING OUR OWN EXCEPTION CLASS AS A SUBCLASS OF EXCEPTION WHICH IS INTURN A SUBCLASS OF THROWABLE*/\cf0\par
+\cf3\tab\cf2\b private\cf3\b0  \cf2\b int\cf3\b0  \cf5 d\cf3 ;\cf0\par
+\cf3\tab InvalidWithdrawalAmountException(\cf2\b int\cf3\b0  \cf4 diff\cf3 )\{\cf0\par
+\cf3\tab\tab\cf5 d\cf3 =\cf4 diff\cf3 ;\cf0\par
+\cf3\tab\}\cf0\par
+\cf3\tab\cf2\b public\cf3\b0  String toString() \{\tab\tab\tab\tab\tab\tab\tab\tab\tab\tab\cf1 /*OVERRIDING THE toString() METHOD TO MAKE OUR OWN MESSAGE*/\cf0\par
+\cf3\tab\tab\cf2\b return\cf3\b0 (\cf6 "THE WITHDRAWAL AMOUNT EXCEEDS YOUR BALANCE BY "\cf3 +\cf5 d\cf3 );\cf0\par
+\cf3\tab\}\cf0\par
+\cf3\}\cf0\par
+\cf2\b public\cf3\b0  \cf2\b class\cf3\b0  CustomException  \{\cf0\par
+\cf3\tab\cf2\b public\cf3\b0  \cf2\b static\cf3\b0  \cf2\b void\cf3\b0  main(String[] \cf4 args\cf3 ) \cf2\b throws\cf3\b0  InvalidWithdrawalAmountException \{\cf0\par
+\cf3\tab\tab\cf2\b int\cf3\b0  \cf4 balance\cf3  = 1000;\cf0\par
+\cf3\tab\tab Scanner \cf4\ul s\cf3\ulnone  = \cf2\b new\cf3\b0  Scanner(System.\cf5\b\i in\cf3\b0\i0 );\cf0\par
+\cf3\tab\tab System.\cf5\b\i out\cf3\b0\i0 .print(\cf6 "ENTER THE WITHDRAWAL AMOUNT:"\cf3 );\cf0\par
+\cf3\tab\tab\cf2\b int\cf3\b0  \cf4 wa\cf3  = \cf4 s\cf3 .nextInt();\cf0\par
+\cf3\tab\tab\cf2\b try\cf3\b0  \{\cf0\par
+\cf3\tab\tab\cf2\b if\cf3\b0 (\cf4 wa\cf3 >\cf4 balance\cf3 ) \{\cf0\par
+\cf3\tab\tab\tab\cf2\b throw\cf3\b0  \cf2\b new\cf3\b0  InvalidWithdrawalAmountException(\cf4 wa\cf3 -\cf4 balance\cf3 );\tab\cf1 /*THROWING OUR CUSTOM EXCEPTION*/\cf0\par
+\cf3\tab\tab\}\cf0\par
+\cf3\tab\tab\cf2\b else\cf3\b0  \{\cf0\par
+\cf3\tab\tab\tab\cf4 balance\cf3  = \cf4 balance\cf3 -\cf4 wa\cf3 ;\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "MONEY SUCESSFULLY WITHDRAWN"\cf3 );\cf0\par
+\cf3\tab\tab\}\cf0\par
+\cf3\tab\tab\}\cf2\b catch\cf3\b0 (InvalidWithdrawalAmountException \cf4 e\cf3 ) \{\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf4 e\cf3 );\cf0\par
+\cf3\tab\tab\tab\cf0\par
+\cf3\tab\tab\}\cf0\par
+\cf3\tab\}\cf0\par
+\par
+\cf3\}\cf0\par
+\par
+\cf1 /*OUTPUT 1:-\cf0\par
+\cf1 ENTER THE WITHDRAWAL AMOUNT:1000\cf0\par
+\cf1 MONEY SUCESSFULLY WITHDRAWN\cf0\par
+\cf1 */\cf0\par
+\cf1 /*OUTPUT 2:-\cf0\par
+\cf1 ENTER THE WITHDRAWAL AMOUNT:3000\cf0\par
+\cf1 THE WITHDRAWAL AMOUNT EXCEEDS YOUR BALANCE BY 2000\cf0\par
+\par
+\cf1 */\par
+\cf0\b\f0\fs40 9.CHAINED EXCEPTIONS:-\par
+\b0\f1\fs20\par
+\cf2\b import\cf3\b0  java.util.*;\cf0\par
+\cf2\b import\cf3\b0  java.io.*;\cf0\par
+\cf2\b public\cf3\b0  \cf2\b class\cf3\b0  ChainedException \{\cf0\par
+\cf3\tab\cf2\b public\cf3\b0  \cf2\b static\cf3\b0  \cf2\b void\cf3\b0  main(String[] \cf4 args\cf3 ) \cf2\b throws\cf3\b0  \highlight7 IOException\highlight0  \{\cf0\par
+\cf3\tab\tab\cf2\b int\cf3\b0  \cf4 a\cf3 ,\cf4 b\cf3 ;\cf0\par
+\cf3\tab\tab\cf4 b\cf3 =20;\cf0\par
+\cf3\tab\tab Scanner \cf4\ul s\cf3\ulnone  = \cf2\b new\cf3\b0  Scanner(System.\cf5\b\i in\cf3\b0\i0 );\cf0\par
+\cf3\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "ENTER THE VALUE OF a"\cf3 );\cf0\par
+\cf3\tab\tab\cf4 a\cf3  = \cf4 s\cf3 .nextInt();\cf0\par
+\cf3\tab\tab\cf2\b try\cf3\b0  \{\cf0\par
+\cf3\tab\tab\cf2\b if\cf3\b0 (\cf4 a\cf3 ==0) \{\cf0\par
+\cf3\tab\tab\tab ArithmeticException \cf4 e\cf3  = \cf2\b new\cf3\b0  ArithmeticException(\cf6 "PROBLEM:DIVIDE BY ZERO"\cf3 );\tab\cf1 /*CREATING AN ARITHMETIC EXCEPTION AS WE ARE ATTEMPTING TO DIVIDE BY ZERO*/\cf0\par
+\cf3\tab\tab\tab\cf4 e\cf3 .initCause(\cf2\b new\cf3\b0  \highlight7 IOException\highlight0 (\cf6 "REAL CAUSE:THE VALUE OF a WAS INPUTTED AS ZERO"\cf3 ));\tab\tab\cf1 /* SINCE THE WHOLE PROBLEM OCCURED DUE TO THE INPUT BEING ZERO WE CHAIN THE REAL CAUSE AS IOException ARISING DUE TO INPUTTING a AS ZERO*/\cf0\par
+\cf3\tab\tab\tab\cf2\b throw\cf3\b0  \cf4 e\cf3 ;\cf0\par
+\cf3\tab\tab\}\cf0\par
+\cf3\tab\tab\cf2\b else\cf3\b0  \{\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf6 "b/a="\cf3 +(\cf4 b\cf3 /\cf4 a\cf3 ));\tab\tab\cf1 /*PRINT b/a IF NO EXCEPTION HAS OCCURED*/\cf0\par
+\cf3\tab\tab\}\cf0\par
+\cf3\tab\tab\}\cf2\b catch\cf3\b0 (ArithmeticException \cf4 e\cf3 ) \{\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf4 e\cf3 );\tab\tab\tab\tab\tab\cf1 /*PRINT THE TOP LAYER OF THE EXCEPTION*/\cf0\par
+\cf3\tab\tab\tab System.\cf5\b\i out\cf3\b0\i0 .println(\cf4 e\cf3 .getCause());\tab\tab\cf1 /*PRINT THE ACTUAL CAUSE THAT CAUSED THE EXCEPTION(INPUTTING a AS ZERO)*/\cf0\par
+\cf3\tab\tab\}\cf0\par
+\cf3\tab\}\cf0\par
+\cf3\}\cf0\par
+\par
+\par
+\cf1 /*OUTPUT 1:-\cf0\par
+\cf1 ENTER THE VALUE OF a\cf0\par
+\cf1 0\cf0\par
+\cf1 java.lang.ArithmeticException: PROBLEM:DIVIDE BY ZERO\cf0\par
+\cf1 java.io.IOException: REAL CAUSE:THE VALUE OF a WAS INPUTTED AS ZERO\cf0\par
+\cf1 */\cf0\par
+\par
+\cf1 /* OUTPUT 2:-\cf0\par
+\cf1 ENTER THE VALUE OF a\cf0\par
+\cf1 10\cf0\par
+\cf1 b/a=2\cf0\par
+\par
+\cf1 */\par
+\par
+\par
+\cf0\f0\fs22\par
+}
+ 

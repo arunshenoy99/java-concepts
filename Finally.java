@@ -1,0 +1,21 @@
+/* HERE WE USE THE finally BLOCK TO EXECUTE CERTAIN NECESSARY STATEMENTS BEFORE THE PROGRAM TERMINATES DUE TO EXCEPTION*/
+public class Finally {
+	public static void main(String[] args) {
+		try {
+			int a,b,c;
+			b=10;
+			a=0;
+			c=b/a;	/*EXCEPTION ARISES AS WE ARE ATTEMPTING TO DIVIDE BY 0 AN ArithmeticException OBJECT IS CREATED AND THROWN, SUBSEQUENT LINES IN TRY NOT RUN */
+			System.out.println("THIS LINE IS NOT EXECUTED");	
+		}finally {
+			System.out.println("THIS IS THE LINE THAT IS TO BE EXECUTED BEFORE THE DEFAULT CATCH MECHANISM TERMINATES THE PROGRAM AND HANDLES THE EXCEPTION");
+		}
+	}
+}
+
+
+/*OUTPUT:-
+Exception in thread "main" THIS IS THE LINE THAT IS TO BE EXECUTED BEFORE THE DEFAULT CATCH MECHANISM TERMINATES THE PROGRAM AND HANDLES THE EXCEPTION
+java.lang.ArithmeticException: / by zero
+	at Finally.main(Finally.java:8)
+*/
